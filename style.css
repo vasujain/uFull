@@ -3,14 +3,14 @@ body {
     padding: 0;
     font-family: arial, Helvetica;
     background-color: #fff8f3;
-    /*width: 400px; */
-    /*height: 500px;"*/
+    width: 400px;
+    height: 500px;
 }
 
 #banner {
     height: 35px;
     width: 100%;
-    background-color: #ffebd9;
+    background-color: #ffdfde;
     border-radius: 3px;
     line-height: 35px;
     text-align: center;
@@ -18,7 +18,7 @@ body {
 }
 
 #banner > span {
-    color: #ff5411;
+    color: #c0243d;
     font: 700 14px/14px arial, Helvetica;
     text-indent: 25px;
     display: inline-block;
@@ -50,7 +50,7 @@ body {
 .list-item {
     display: block;
     color: #333;
-    border-bottom: 1px solid #ffefe2;
+    border-bottom: 1px solid #ff9999;
     cursor: pointer;
     padding: 3px;
 }

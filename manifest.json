@@ -4,7 +4,7 @@
     "description" : "Chrome Extension to turn youtube videos to full screen within browser",
     "version" : "0.0.1",
     "browser_action" : {
-        "default_icon" : "resources/bookmark_red_24.png",
+        "default_icon" : "resources/video_red_24.png",
         "default_popup" : "popup.html"
     },
     "permissions" : [
@@ -12,11 +12,13 @@
         "bookmarks"
     ],
     "icons" : {
-        "16" : "resources/bookmark_red_16.png",
-        "24" : "resources/bookmark_red_24.png",
-        "32" : "resources/bookmark_red_32.png",
-        "48" : "resources/bookmark_red_48.png",
-        "128" : "resources/bookmark_red_128.png",
-        "256" : "resources/bookmark_red_256.png"
+        "16" : "resources/video_red_16.png",
+        "24" : "resources/video_red_24.png",
+        "32" : "resources/video_red_32.png",
+        "48" : "resources/video_red_48.png",
+        "64" : "resources/video_red_64.png",
+        "72" : "resources/video_red_72.png",
+        "96" : "resources/video_red_96.png",
+        "128" : "resources/video_red_128.png"
     }
 }
