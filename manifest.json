@@ -9,7 +9,8 @@
     },
     "permissions" : [
         "tabs",
-        "bookmarks"
+        "bookmarks",
+        "activeTab"
     ],
     "icons" : {
         "16" : "resources/video_red_16.png",
