@@ -8,17 +8,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function convertYouTubeUrl() {
-    var currentTab = getCurrentTab();
-    console.log(currentTab);
-    alert(currentTab);
+    getCurrentTab();
 }
 
 function getCurrentTab() {
     var currentActiveTab = "http://www.google.com";
     return chrome.tabs.query({currentWindow : true, active:true}, function (tabs){
-        currentActiveTab = tabs[0].url;
-        return currentActiveTab;
+        checkCurrentTab(tabs[0].url);
     });
+}
+
+function checkCurrentTab(tabUrl) {
+    var regEx = "^(http\:\/\/|https\:\/\/)?((www\.)?youtube\.com|youtu\.?be)\/.+$";
+    var checkRegEx = regEx.exec(tabUrl);
+
+    console.log(tabUrl);
+    console.log("#");
+    console.log(checkRegEx);
 }
 //
 //document.addEventListener('DOMContentLoaded', function () {
