@@ -1,1 +1,1 @@
-    http://www.iconarchive.com/show/circle-icons-by-martz90/video-camera-icon.html
+Icons under CC Attribution-Noncommercial-No Derivate 4.0 license from http://www.iconarchive.com/show/circle-icons-by-martz90/video-camera-icon.html
