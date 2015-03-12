@@ -37,7 +37,7 @@ function getCurrentTab() {
 function checkCurrentTab(tabUrl, tabId) {
 
     //Nasty Youtube URL Regex... can be improved for mobile URLs and international Domains like .in,.uk etc
-    var regEx = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/watch\?v=)(\w{11})/;
+    var regEx = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/watch\?v=)(\S{11})/;
     var match = regEx.exec(tabUrl);
 
     //Check if URL is a valid YouTube URL
@@ -57,4 +57,5 @@ function checkCurrentTab(tabUrl, tabId) {
     }
 
 }
+
 
