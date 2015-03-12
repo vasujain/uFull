@@ -3,8 +3,8 @@ body {
     padding: 0;
     font-family: arial, Helvetica;
     background-color: #fff8f3;
-    width: 300px;
-    height: 100px;
+    width: auto;
+    height: auto;
 }
 
 #banner {
