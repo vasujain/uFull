@@ -42,16 +42,16 @@ function checkCurrentTab(tabUrl, tabId) {
 
     //Check if URL is a valid YouTube URL
     if (match == null) {
-        divOutputHtml = "<div style='color: #D8000C;background-color: #FFBABA;'>Invalid URL: " + tabUrl + "</div>";
+        divOutputHtml = "<div style='color: #D8000C;background-color: #FFBABA; padding: 10px;'><b>Invalid URL: </b>" + tabUrl + "</div>";
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
     } else {
         //Sanity check... to set up the new URL
         if (match.length >= 6) {
             match[4] = "\/embed\/";
         }
-        divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF;'>" + match[0] + "</div>";
+        divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF; padding: 10px;'><b>Redirected from: </b>" + match[0] + "</div>";
         redirectUrl = match[1] + match[2] + match[4] + match[5];
-        divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF;'>" + redirectUrl + "</div>";
+        divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF; padding: 10px;'><b>Redirected To: </b>" + redirectUrl + "</div>";
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
         chrome.tabs.update(tabId, {url: redirectUrl});
     }
