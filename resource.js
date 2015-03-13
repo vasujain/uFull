@@ -40,20 +40,45 @@ function checkCurrentTab(tabUrl, tabId) {
     var regEx = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/watch\?v=)(\S{11})/;
     var match = regEx.exec(tabUrl);
 
+    var regExForFullUrl = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/embed\/)(\S{11})/;
+    var matchFullUrl = regExForFullUrl.exec(tabUrl);
+
     //Check if URL is a valid YouTube URL
-    if (match == null) {
-        divOutputHtml = "<div style='color: #D8000C;background-color: #FFBABA; padding: 10px;'><b>Invalid URL: </b>" + tabUrl + "</div>";
-        document.getElementById("convertUrl").innerHTML = divOutputHtml;
+    if (match == null && matchFullUrl == null) {
+        updateRedirectUrl(match, tabUrl, tabId, false);
     } else {
-        //Sanity check... to set up the new URL
-        if (match.length >= 6) {
-            match[4] = "\/embed\/";
+        if(matchFullUrl==null) {
+            //Sanity check... to set up the new URL
+            if (match.length >= 6) {
+                match[4] = "\/embed\/";
+            }
+            updateRedirectUrl(match, tabUrl, tabId, true);
+        } else if (match == null) {
+            if (matchFullUrl.length >= 6) {
+                matchFullUrl[4] = "\/watch\?v=";
+            }
+            updateRedirectUrl(matchFullUrl, tabUrl, tabId, true);
         }
-        divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF; padding: 10px;'><b>Redirected from: </b>" + match[0] + "</div>";
-        redirectUrl = match[1] + match[2] + match[4] + match[5];
+
+    }
+}
+
+/**
+ * RegEx stuff and redirection to embed URL for youtube
+ * @param: regex match object
+ * @param: Tab Id
+ *
+ */
+function updateRedirectUrl(regexMatch, tabUrl, tabId, redirectFlag) {
+    if(redirectFlag) {
+        divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF; padding: 10px;'><b>Redirected from: </b>" + regexMatch[0] + "</div>";
+        redirectUrl = regexMatch[1] + regexMatch[2] + regexMatch[4] + regexMatch[5];
         divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF; padding: 10px;'><b>Redirected To: </b>" + redirectUrl + "</div>";
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
         chrome.tabs.update(tabId, {url: redirectUrl});
+    } else {
+        divOutputHtml = "<div style='color: #D8000C;background-color: #FFBABA; padding: 10px;'><b>Invalid URL: </b>" + tabUrl + "</div>";
+        document.getElementById("convertUrl").innerHTML = divOutputHtml;
     }
 
 }
