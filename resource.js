@@ -71,13 +71,13 @@ function checkCurrentTab(tabUrl, tabId) {
  */
 function updateRedirectUrl(regexMatch, tabUrl, tabId, redirectFlag) {
     if(redirectFlag) {
-        divOutputHtml += "<div class='youtubeValidUrl'><b>Redirected from: </b><span class='invalidUrlText'>" + regexMatch[0] + "</span></div>";
+        divOutputHtml += "<div class='youtubeValidUrl'><b>Redirected from: </b><br/><span class='invalidUrlText'>" + regexMatch[0] + "</span></div>";
         redirectUrl = regexMatch[1] + regexMatch[2] + regexMatch[4] + regexMatch[5];
-        divOutputHtml += "<div class='youtubeValidUrl'><b>Redirected To: </b><span class='invalidUrlText'>" + redirectUrl + "</span></div>";
+        divOutputHtml += "<div class='youtubeValidUrl'><b>Redirected To: </b><br/><span class='invalidUrlText'>" + redirectUrl + "</span></div>";
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
         chrome.tabs.update(tabId, {url: redirectUrl});
     } else {
-        tabUrl = trimLongUrl(tabUrl, 70);
+        tabUrl = trimLongUrl(tabUrl, 42);
         divOutputHtml = "<div class='invalidURL'><b>Invalid URL: </b><br><span class='invalidUrlText'>" + tabUrl + "</span></div>";
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
     }
