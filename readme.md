@@ -25,7 +25,7 @@ Details
 *******
 "name" : "uFull",
 "description" : "Chrome Extension to turn youtube videos to full screen within browser",
-"version" : "0.5.0",
+"version" : "0.6.0",
 "permissions" : [
     "tabs",
     "bookmarks",
