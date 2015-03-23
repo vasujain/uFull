@@ -15,7 +15,7 @@ body {
     line-height: 35px;
     text-align: center;
     position: relative;
-    padding: 5px 10px 5px 10px;
+    /*padding: 0 10px 0 10px;*/
 }
 
 #banner > span {
@@ -47,7 +47,7 @@ body {
 }
 
 .invalidURL {
-    color: #D8000C;
+    color: #c0243d;
     padding: 10px;
 }
 .invalidUrlText, .youtubeValidUrlText {

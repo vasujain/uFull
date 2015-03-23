@@ -77,8 +77,26 @@ function updateRedirectUrl(regexMatch, tabUrl, tabId, redirectFlag) {
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
         chrome.tabs.update(tabId, {url: redirectUrl});
     } else {
+        tabUrl = trimLongUrl(tabUrl, 70);
         divOutputHtml = "<div class='invalidURL'><b>Invalid URL: </b><br><span class='invalidUrlText'>" + tabUrl + "</span></div>";
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
     }
 
+}
+
+/**
+ * Trim a URL to fit screen
+ * @param: currentUrl
+ * @param: trimSize
+ * @return: returnUrl
+ *
+ */
+function trimLongUrl(currentUrl, trimSize) {
+    var returnUrl = currentUrl;
+    if(currentUrl.length > trimSize) {
+        var str = String(currentUrl);
+        returnUrl = str.substring(0,trimSize) + "...";
+        return(returnUrl);
+    }
+    return returnUrl;
 }
