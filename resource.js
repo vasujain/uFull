@@ -71,16 +71,14 @@ function checkCurrentTab(tabUrl, tabId) {
  */
 function updateRedirectUrl(regexMatch, tabUrl, tabId, redirectFlag) {
     if(redirectFlag) {
-        divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF; padding: 10px;'><b>Redirected from: </b>" + regexMatch[0] + "</div>";
+        divOutputHtml += "<div class='youtubeValidUrl'><b>Redirected from: </b><span class='invalidUrlText'>" + regexMatch[0] + "</span></div>";
         redirectUrl = regexMatch[1] + regexMatch[2] + regexMatch[4] + regexMatch[5];
-        divOutputHtml += "<div style='color: #4F8A10;background-color: #DFF2BF; padding: 10px;'><b>Redirected To: </b>" + redirectUrl + "</div>";
+        divOutputHtml += "<div class='youtubeValidUrl'><b>Redirected To: </b><span class='invalidUrlText'>" + redirectUrl + "</span></div>";
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
         chrome.tabs.update(tabId, {url: redirectUrl});
     } else {
-        divOutputHtml = "<div style='color: #D8000C;background-color: #FFBABA; padding: 10px;'><b>Invalid URL: </b>" + tabUrl + "</div>";
+        divOutputHtml = "<div class='invalidURL'><b>Invalid URL: </b><br><span class='invalidUrlText'>" + tabUrl + "</span></div>";
         document.getElementById("convertUrl").innerHTML = divOutputHtml;
     }
 
 }
-
-
