@@ -15,7 +15,6 @@ body {
     line-height: 35px;
     text-align: center;
     position: relative;
-    /*padding: 0 10px 0 10px;*/
 }
 
 #banner > span {
@@ -28,7 +27,7 @@ body {
     padding:20px;
 }
 
-#container, #banner, #output, #share {
+#container, #banner, #output, #share, #supportedPlayers {
     border-bottom: 1px solid #d9d9d9;
 }
 
@@ -50,7 +49,7 @@ body {
     color: #c0243d;
     padding: 10px;
 }
-.invalidUrlText, .youtubeValidUrlText {
+.urlText, .youtubeValidUrlText {
     color: #949494;
 }
 
@@ -58,7 +57,7 @@ body {
     width: 65%;
 }
 
-.youtubeValidUrl {
+.validUrl {
     color: #4F8A10;
     padding: 10px;
 }
@@ -112,4 +111,29 @@ body {
 
 #share-box div[data-social="gplus"] {
     background-position: -1px -67px;
+}
+
+#supportedPlayers {
+    text-align: center;
+    padding: 5px;
+}
+
+#supportedPlayers img {
+    width:18%;
+    padding: 7px;
+}
+
+#supportedPlayersText {
+    color: #949494;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+}
+
+#supportedPlayers > img {
+    opacity: 0.7;
+}
+
+#supportedPlayers > img:hover {
+    opacity: 1.0;
 }
