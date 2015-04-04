@@ -128,11 +128,17 @@ body {
     font-weight: 400;
     font-size: 15px;
     text-align: center;
+    padding: 5px;
 }
 
 #supportedPlayers > img {
     opacity: 0.7;
 }
+
+#supportedPlayers > img.DailyMotion {
+    opacity: 0.5;
+}
+
 
 #supportedPlayers > img:hover {
     opacity: 1.0;

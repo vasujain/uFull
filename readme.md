@@ -21,11 +21,15 @@ Why ?
 Yep, full screen is there, but as i mentioned it is more of an ointment for my multi tasking itch. That way you dont miss notifications from apps / browser tabs / OS Notifications etc. 
 Website
 
+Note
+*******
+Certain videos on Youtube, won't be playable under full screen mode. This may be due to restriction of content owner on Youtube.
+
 Details
 *******
 "name" : "uFull",
 "description" : "Chrome Extension to turn Youtube/Vimeo/Facebook/DailyMotion videos to full screen within browser",
-"version" : "0.9.0",
+"version" : "0.9.4",
 "permissions" : [
     "tabs",
     "bookmarks",

@@ -43,6 +43,9 @@ function checkCurrentTab(tabUrl, tabId) {
     // Display Invalid URL if URL does not match any supported channel
     if(!yt && !fb && !vm && !dm) {
         displayInvalidUrl(tabUrl);
+        return false;
+    } else {
+        return true;
     }
 }
 
@@ -55,7 +58,7 @@ function checkCurrentTab(tabUrl, tabId) {
  */
 function fillYouTubeUrl(tabUrl, tabId) {
     //Nasty Youtube URL Regex... can be improved for mobile URLs and international Domains like .in,.uk etc
-    var regExServiceUrl = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/watch\?v=)(\S{11})/;
+    var regExServiceUrl = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/watch\?)((\S*\&v\=)|(v\=))([_-a-z0-9A-Z]+)/;
     var matchServiceUrl = regExServiceUrl.exec(tabUrl);
 
     var regExEmbedUrl = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/embed\/)(\S{11})/;
@@ -70,7 +73,7 @@ function fillYouTubeUrl(tabUrl, tabId) {
             if (matchServiceUrl.length >= 6) {
                 matchServiceUrl[4] = "\/embed\/";
             }
-            redirectUrl = matchServiceUrl[1] + matchServiceUrl[2] + matchServiceUrl[4] + matchServiceUrl[5] + "?autoplay=1";
+            redirectUrl = matchServiceUrl[1] + matchServiceUrl[2] + matchServiceUrl[4] + matchServiceUrl[8] + "?autoplay=1";
             updateRedirectUrl(matchServiceUrl, tabUrl, tabId, true, redirectUrl);
         } else if (matchServiceUrl == null) {
             if (matchEmbedUrl.length >= 6) {
