@@ -29,7 +29,7 @@ Details
 *******
 "name" : "uFull",
 "description" : "Chrome Extension to turn Youtube/Vimeo/Facebook/DailyMotion videos to full screen within browser",
-"version" : "0.9.5",
+"version" : "0.9.6",
 "permissions" : [
     "tabs",
     "bookmarks",

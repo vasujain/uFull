@@ -2,7 +2,7 @@
  * @name Vasu Jain
  * @email vj@brk.im
  * @date 03/08/15
- * @license Open Source
+ * @license Gnu Public License (GPL)
  */
 
 /**
@@ -58,7 +58,7 @@ function checkCurrentTab(tabUrl, tabId) {
  */
 function fillYouTubeUrl(tabUrl, tabId) {
     //Nasty Youtube URL Regex... can be improved for mobile URLs and international Domains like .in,.uk etc
-    var regExServiceUrl = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/watch\?)((\S*\&v\=)|(v\=))([_-a-z0-9A-Z]+)/;
+    var regExServiceUrl = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/watch\?)((\S*\&v\=)|(v\=))([_|\-|a-z|0-9|A-Z]+)/;
     var matchServiceUrl = regExServiceUrl.exec(tabUrl);
 
     var regExEmbedUrl = /(http\:\/\/|https\:\/\/)?((www\.)youtube\.com|youtu\.?be)(\/embed\/)(\S{11})/;
@@ -69,14 +69,19 @@ function fillYouTubeUrl(tabUrl, tabId) {
         return false;
     } else {
         if(matchEmbedUrl==null) {
+            console.log(matchServiceUrl);
+            console.log(matchServiceUrl[8]);
             //Sanity check... to set up the new URL
-            if (matchServiceUrl.length >= 6) {
+            if (matchServiceUrl.length >= 8) {
                 matchServiceUrl[4] = "\/embed\/";
+                if(matchServiceUrl[8].length < 11) {
+                    return false;
+                }
             }
             redirectUrl = matchServiceUrl[1] + matchServiceUrl[2] + matchServiceUrl[4] + matchServiceUrl[8] + "?autoplay=1";
             updateRedirectUrl(matchServiceUrl, tabUrl, tabId, true, redirectUrl);
         } else if (matchServiceUrl == null) {
-            if (matchEmbedUrl.length >= 6) {
+            if (matchEmbedUrl.length >= 5) {
                 matchEmbedUrl[4] = "\/watch\?v=";
             }
             redirectUrl = matchEmbedUrl[1] + matchEmbedUrl[2] + matchEmbedUrl[4] + matchEmbedUrl[5];

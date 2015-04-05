@@ -1,7 +1,9 @@
-/**
- * Created by vasjain on 4/3/15.
+/** Author Details
+ * @name Vasu Jain
+ * @email vj@brk.im
+ * @date 04/03/15
+ * @license Gnu Public License (GPL)
  */
-
 /**
  * YouTube Test Cases
  */
@@ -11,11 +13,17 @@ QUnit.test("YouTube Test" , function(assert) {
         "https://www.youtube.com/embed/WB370ewOklw?autoplay=1",
         "https://www.youtube.com/embed/DGD62Pan_z4",
         "https://www.youtube.com/watch?feature=player_embedded&v=22CrPtjODPY&app=desktop",
-        "https://www.youtube.com/watch?v=-SQ2bvbmAMU&list=PLzufeTFnhupxIlcUF3d5tyRrr0CVpmAVh"
-    ];
+        "https://www.youtube.com/watch?v=-SQ2bvbmAMU&list=PLzufeTFnhupxIlcUF3d5tyRrr0CVpmAVh",
+        "https://www.youtube.com/watch?v=kwijX850Btk",
+        "https://www.youtube.com/watch?v=kwijX8501_Btk",
+        "https://www.youtube.com/watch?v=_kwijX850Btk",
+        "https://www.youtube.com/watch?v=kw_ijX850Btk",
+        "https://www.youtube.com/watch?v=-kwi-jX850Btk"
+        ];
     var youTubeArrayFalse = [
         "https://www.youtube.com/v/WB370ewOklw?autoplay=1",
         "http://www.youtube.com/watch_popup?v=WB370ewOklw",
+        "https://www.youtube.com/watch?v=k#wijX850Btk",
         "https://www.yoeutube.com/watch?v=-SQ2bvbmAMU&list=PLzufeTFnhupxIlcUF3d5tyRrr0CVpmAVh"
     ];
 
